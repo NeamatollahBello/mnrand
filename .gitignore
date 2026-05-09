@@ -1,8 +1,5 @@
 *
 !.gitignore
-gitinit.bat
-gitme(global).bat
-gitsync.bat
 
 !*/
 !**/
@@ -21,3 +18,7 @@ gitsync.bat
 !*.dproj
 !*.bat
 !**/Data
+
+gitinit.bat
+gitme(global).bat
+gitsync.bat
