@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{879E53E3-4913-403D-A184-D7AB20911FED}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Service\MnrAndSvc.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Settings\mnrAnd.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MnrAndSvc">
+        <MSBuild Projects="Service\MnrAndSvc.dproj"/>
+    </Target>
+    <Target Name="MnrAndSvc:Clean">
+        <MSBuild Projects="Service\MnrAndSvc.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MnrAndSvc:Make">
+        <MSBuild Projects="Service\MnrAndSvc.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="mnrAnd">
+        <MSBuild Projects="Settings\mnrAnd.dproj"/>
+    </Target>
+    <Target Name="mnrAnd:Clean">
+        <MSBuild Projects="Settings\mnrAnd.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="mnrAnd:Make">
+        <MSBuild Projects="Settings\mnrAnd.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MnrAndSvc;mnrAnd"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MnrAndSvc:Clean;mnrAnd:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MnrAndSvc:Make;mnrAnd:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
