@@ -1,5 +1,8 @@
 *
 !.gitignore
+gitinit.bat
+gitme(global).bat
+gitsync.bat
 
 !*/
 !**/
